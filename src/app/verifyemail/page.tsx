@@ -35,7 +35,7 @@ const VerifyEmail = () => {
         if(token.length>0){
             verifyUser();
         }
-    },[token])
+    },[verifyUser,token])
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
