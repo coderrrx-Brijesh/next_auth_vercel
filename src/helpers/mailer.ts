@@ -12,7 +12,7 @@ export const sendEmail = async ({
   email,
   emailType,
   userId,
-}: SendEmailParams): Promise<any> => {
+}: SendEmailParams) => {
   try {
     // create a hashed token
     const hashedToken = await bcryptjs.hash(userId.toString(), 10);
