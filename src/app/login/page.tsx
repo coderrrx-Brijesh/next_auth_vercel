@@ -49,7 +49,7 @@ const LogIn = () => {
         <input type="email" name="email" id="email" className="bg-amber-50 text-black  rounded-b-sm p-1 w-1/4" placeholder="Email" onChange={(e) => setUser({...user, email: e.target.value})} />
         <label htmlFor="password">Password</label>
         <input type="password" name="password" id="password" className="bg-amber-50 text-black rounded-b-sm p-1 w-1/4" placeholder="Password" onChange={(e) => setUser({...user, password: e.target.value})} />
-      <button className="bg-gray-800 p-2 rounded-sm mt-10" onClick={onLogIn}>Log In</button>
+      <button disabled={buttonDisabled} className="bg-gray-800 p-2 rounded-sm mt-10" onClick={onLogIn}>Log In</button>
       </div>
       <Link href={"/signup"}>SignUp Here</Link>
     </div>

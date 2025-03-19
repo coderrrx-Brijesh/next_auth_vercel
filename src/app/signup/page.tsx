@@ -25,7 +25,7 @@ const SignUp = () => {
           console.log("Signup Success", response.data);
           router.push("/login");
           toast.success("Signup Success");
-      }catch(error:any){
+      }catch(error){
         console.log("Signup failed", error);
         toast.error("Signup failed");
       }finally{
