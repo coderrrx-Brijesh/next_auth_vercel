@@ -30,6 +30,9 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({ message: "User created successfully ",success:true,  user:savedUser }, { status: 201 });
     } catch (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        if (error instanceof Error) {
+            return NextResponse.json({ error: error.message }, { status: 500 });
+        }
+        return NextResponse.json({ error: String(error) }, { status: 500 });
     }
 }
