@@ -1,6 +1,11 @@
 import React from "react";
 
-const ProfilePage = ({ params }: { params: { id: string } }) => {
+interface PageProps {
+  params: { id: string };
+}
+
+const ProfilePage = ({ params }: PageProps) => {
+  // Remove "await" since params is a plain object, not a promise
   const { id } = params;
 
   return (
