@@ -1,14 +1,14 @@
 "use client"
 import axios from 'axios'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import toast from 'react-hot-toast'
  
-const verifyEmail = () => {
-    const [token, setToken] = React.useState("");
-    const [verified, setVerified] = React.useState(false);
-    const [error, setError] = React.useState("");
+const VerifyEmail = () => {
+    const [token, setToken] = useState("");
+    const [verified, setVerified] = useState(false);
+    const [error, setError] = useState("");
+    const incoming_token = window.location.search.split("=")[1];
     const verifyUser = async () => {
         try{
             const response = await axios.post("/api/users/verifyemail",{token});
@@ -26,8 +26,8 @@ const verifyEmail = () => {
     }
 
     useEffect(()=>{
-        setToken(window.location.search.split("=")[1] || "");
-    },[])
+        setToken(incoming_token || "");
+    },[incoming_token])
 
     useEffect(()=>{
         if(token.length>0){
@@ -54,4 +54,4 @@ const verifyEmail = () => {
   )
 }
 
-export default verifyEmail
+export default VerifyEmail
