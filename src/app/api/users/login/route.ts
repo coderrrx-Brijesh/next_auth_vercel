@@ -1,9 +1,7 @@
-import mongoose from "mongoose";
 import User from "@/models/userModel";
 import bcryptjs from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
 import {connectDB} from "@/dbConfig/dbConfig";
-import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
 connectDB();

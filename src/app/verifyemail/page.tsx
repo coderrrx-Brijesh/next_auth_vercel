@@ -19,9 +19,11 @@ const VerifyEmail = () => {
             }else{
                 console.log("Email Verification Failed");
                 toast.error("Email Verification Failed");}
-            }catch(error:any){
-                setError(error.message);
-                console.log(error);
+            }catch(error){
+                if(error instanceof Error) {
+                    setError(error.message);
+                    console.log(error);
+                }
         }
     }
 

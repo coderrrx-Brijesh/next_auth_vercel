@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import React from "react"
+import React, { useEffect } from "react"
 import axios from "axios"
 import toast from "react-hot-toast"
 
@@ -23,7 +23,7 @@ const LogIn = () => {
       console.log("Login Success", response.data);
       toast.success("Login Success");
       router.push("/profile");}
-    }catch(error:any){
+    }catch(error){
       console.log("Login failed", error);
       toast.error("Login failed");
     }finally{
@@ -31,6 +31,15 @@ const LogIn = () => {
     }
     
   }
+
+  useEffect(()=>{
+    if(user.email.length > 0 && user.password.length > 0){
+      setButtonDisabled(false);
+    }else{
+      setButtonDisabled(true);
+    }
+  },[user])
+
 
   return (
     <div className="flex flex-col h-screen w-full justify-center items-center p-4">

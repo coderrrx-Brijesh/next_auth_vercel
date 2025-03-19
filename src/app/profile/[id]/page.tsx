@@ -1,4 +1,3 @@
-import { Parkinsans } from 'next/font/google'
 import React from 'react'
 
 const ProfilePage = async ({ params }: { params: { id: string } }) => {
